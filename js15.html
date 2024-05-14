@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .tiaoshi {
+            width:400px;
+            height:400px;
+            border:1px solid gray;
+        }
+ 
+    </style>
+</head>
+<body>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div class="tiaoshi"></div>
+    <ul>
+       
+    </ul>
+    <input type="text" name='context'>
+    <script>
+
+        $('div').each(function (index,domEle){
+            if(index==0){
+                console.log('这是第一个' + domEle);
+            }
+            else if(index==1){
+                console.log('这是第二个' + domEle);
+            }
+            else {
+                console.log('这是第三个' + domEle);
+            }
+        });
+
+        var obj = {
+            name:"caichognxiao",
+            sex:"male",
+            dongzuo:function (){
+                console.log('daji');
+            }
+        }
+
+        $.each(obj,function(index,domele){
+          console.log(index + ":" +domele);
+        });
+
+        $('.tiaoshi').on({
+            mouseenter:function() {
+                $(this).css('backgroundColor','pink');
+            },
+            mouseleave:function() {
+                $(this).css('backgroundColor','blue');
+            },
+            click:function() {
+                alert(111);
+            }
+        });
+
+       var li =  $("<li>1</li><li>2</li><li>3</li>");
+        $('ul').on('click','li',function() {
+            alert(333);
+        })
+        $('ul').append(li);
+
+        $('input').on('focus',function() {
+            $(this).val('hello world');
+        });
+
+        //$('input').focus();
+        //$('input').trigger('focus');
+        $('input').triggerHandler('focus');
+    </script>
+</body>
+</html>
